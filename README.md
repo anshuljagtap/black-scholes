@@ -2,6 +2,10 @@
 
 A comprehensive web application for calculating European option prices using the Black-Scholes model. Features an interactive Next.js frontend with real-time calculations, beautiful charts, and educational content.
 
+🌐 **Live Demo**: [https://black-scholes-nine.vercel.app/](https://black-scholes-nine.vercel.app/)
+
+[![Try it now](https://img.shields.io/badge/Try%20it%20now-Live%20Demo-blue?style=for-the-badge&logo=vercel)](https://black-scholes-nine.vercel.app/)
+
 ## 🚀 Features
 
 ### 📊 **Interactive Calculator**
@@ -64,16 +68,21 @@ A comprehensive web application for calculating European option prices using the
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### Quick Start
+**Try the live demo**: [https://black-scholes-nine.vercel.app/](https://black-scholes-nine.vercel.app/)
+
+### Local Development
+
+#### Prerequisites
 - Node.js 18+ 
 - npm or yarn
 
-### Installation
+#### Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/black-scholes-calculator.git
-cd black-scholes-calculator
+git clone https://github.com/anshuljagtap/black-scholes.git
+cd black-scholes
 ```
 
 2. Install dependencies:
@@ -199,6 +208,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Next.js team for the amazing framework
 - Recharts for beautiful chart components
 - Tailwind CSS for utility-first styling
+
+## 👨‍💻 Author
+
+**Anshul Jagtap**
+- GitHub: [@anshuljagtap](https://github.com/anshuljagtap)
+- LinkedIn: [anshul-jagtap](https://www.linkedin.com/in/anshul-jagtap/)
 
 ## 📞 Support
 
