@@ -62,6 +62,14 @@ function generateSensitivityData(params: BlackScholesParams) {
   return data;
 }
 
+// Add CORS headers for better compatibility
+const corsHeaders = {
+  'Content-Type': 'application/json',
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
+
 export async function POST(request: NextRequest) {
   try {
     const body: BlackScholesParams = await request.json();
@@ -70,14 +78,14 @@ export async function POST(request: NextRequest) {
     if (!body.S || !body.K || !body.T || !body.r || !body.sigma || !body.option_type) {
       return NextResponse.json(
         { error: 'Missing required parameters' },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       );
     }
     
     if (body.S <= 0 || body.K <= 0 || body.T <= 0 || body.sigma < 0) {
       return NextResponse.json(
         { error: 'Invalid parameter values' },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       );
     }
     
@@ -135,12 +143,24 @@ export async function POST(request: NextRequest) {
       sensitivityData: sensitivityData
     };
     
-    return NextResponse.json(result);
+    return NextResponse.json(result, { headers: corsHeaders });
   } catch (error) {
     console.error('Error calculating Black-Scholes:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
-      { status: 500 }
+      { status: 500, headers: corsHeaders }
     );
   }
+}
+
+// Add OPTIONS handler for CORS
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
 }

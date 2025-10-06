@@ -28,9 +28,23 @@ export default function Home() {
   const [result, setResult] = useState<CalculationResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [lastInputs, setLastInputs] = useState<any>(null);
+  const [lastInputs, setLastInputs] = useState<{
+    S: number;
+    K: number;
+    T: number;
+    r: number;
+    sigma: number;
+    option_type: 'call' | 'put';
+  } | null>(null);
 
-  const handleCalculate = async (inputs: any) => {
+  const handleCalculate = async (inputs: {
+    S: number;
+    K: number;
+    T: number;
+    r: number;
+    sigma: number;
+    option_type: 'call' | 'put';
+  }) => {
     setLoading(true);
     setError(null);
     setLastInputs(inputs);

@@ -41,7 +41,6 @@ export default function ResultsDisplay({ result, inputs }: ResultsDisplayProps) 
   const { option_type } = inputs;
 
   const formatCurrency = (value: number) => `$${value.toFixed(2)}`;
-  const formatPercentage = (value: number) => `${(value * 100).toFixed(2)}%`;
 
   const greeksData = [
     { name: 'Delta', value: greeks.delta, description: 'Price sensitivity to underlying asset' },
